@@ -7,31 +7,17 @@ module.exports = () =>
     <hr />
     <form method="POST" action="/wiki/">
       <div class="form-group">
-        <label for="author-name" class="col-sm-2 control-label"
-          >Author Name</label
-        >
+        <label for="name" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-10">
-          <input
-            id="author-name"
-            name="author-name"
-            type="text"
-            class="form-control"
-          />
+          <input id="name" name="name" type="text" class="form-control" />
         </div>
       </div>
 
       <form method="POST" action="/wiki/">
         <div class="form-group">
-          <label for="author-email" class="col-sm-2 control-label"
-            >Author Email</label
-          >
+          <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
-            <input
-              id="author-email"
-              name="author-email"
-              type="text"
-              class="form-control"
-            />
+            <input id="email" name="email" type="text" class="form-control" />
           </div>
         </div>
 
@@ -44,13 +30,11 @@ module.exports = () =>
 
         <form method="POST" action="/wiki/">
           <div class="form-group">
-            <label for="page-content" class="col-sm-2 control-label"
-              >Page Content</label
-            >
+            <label for="Content" class="col-sm-2 control-label">Content</label>
             <div class="col-sm-10">
               <input
-                id="page-content"
-                name="page-content"
+                id="content"
+                name="content"
                 type="text"
                 class="form-control"
               />
@@ -59,13 +43,11 @@ module.exports = () =>
 
           <form method="POST" action="/wiki/">
             <div class="form-group">
-              <label for="page-status" class="col-sm-2 control-label"
-                >Page Status</label
-              >
+              <label for="status" class="col-sm-2 control-label">Status</label>
               <div class="col-sm-10">
                 <input
-                  id="page-status"
-                  name="page-status"
+                  id="status"
+                  name="status"
                   type="text"
                   class="form-control"
                 />

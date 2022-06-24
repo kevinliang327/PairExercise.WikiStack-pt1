@@ -24,11 +24,15 @@ db.authenticate().then(() => {
 const PORT = 3000;
 
 const init = async () => {
-  await db.sync({ force: true });
-  // make sure that you have a PORT constant
-  app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}!`);
-  });
+  try {
+    await db.sync();
+    // make sure that you have a PORT constant
+    app.listen(PORT, () => {
+      console.log(`Server is listening on port ${PORT}!`);
+    });
+  } catch (error) {
+    console.error("Error starting server:", error);
+  }
 };
 
 init();

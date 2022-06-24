@@ -1,24 +1,27 @@
 const express = require("express");
 const router = express.Router();
+const { Page, User } = require("../models");
+const { userList, userPages } = require("../views");
 
-router.get("/", (req, res, next) => {
-  res.send("GET /wiki");
+router.get("/", async (req, res, next) => {
+  try {
+    const users = await User.findAll();
+    res.send(userList(users));
+  } catch (error) {
+    next(error);
+  }
 });
 
-router.get("/:id", (req, res, next) => {
-  res.send("GET /wiki");
-});
-
-router.post("/", (req, res, next) => {
-  res.send("GET /wiki");
-});
-
-router.put("/", (req, res, next) => {
-  res.send("GET /wiki");
-});
-
-router.delete("/", (req, res, next) => {
-  res.send("GET /wiki");
+router.get("/:userId", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.userId);
+    const pages = await Page.findAll({
+      where: { authorId: req.params.userId },
+    });
+    res.send(userPages(user, pages));
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
