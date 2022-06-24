@@ -1,6 +1,8 @@
 const express = require("express");
 const morgan = require("morgan");
+const methodOverride = require("method-override");
 const app = express();
+
 const layout = require("./views/layout.js");
 const { db, Page, User } = require("./models");
 const wikiRouter = require("./routes/wiki");
@@ -9,6 +11,8 @@ const userRouter = require("./routes/users");
 app.use(morgan("dev"));
 app.use(express.static("/public"));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(methodOverride("_method")); // configure methodOverride to look for '_method'
 
 app.get("/", (req, res) => {
   res.redirect("/wiki");
