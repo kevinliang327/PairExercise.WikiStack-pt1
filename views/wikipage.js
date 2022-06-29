@@ -13,6 +13,9 @@ module.exports = (page, author) =>
     <div class="page-body">$${marked.parse(page.content)}</div>
     <hr />
     <a href="/wiki/${page.slug}/edit" class="btn btn-primary">edit this page</a>
+    <a href="/wiki/${page.slug}/delete" class="btn btn-primary"
+      >delete this page</a
+    >
     <form
       style="display:inline"
       method="POST"
